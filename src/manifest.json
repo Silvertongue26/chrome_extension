@@ -1,0 +1,38 @@
+{
+  "manifest_version": 2,
+  "name": "Grammar Guru",
+  "version": "1.0",
+  "default_locale": "en",
+  "description": "Improve your grammar and spelling with real-time checking.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "activeTab"
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "scripts": ["background.js", "js/popup.js"],
+    "persistent": false
+  },
+  "web_accessible_resources": [
+    "images/logo.png",
+    "css/styles.css",
+    "js/script.js"
+  ]
+}
